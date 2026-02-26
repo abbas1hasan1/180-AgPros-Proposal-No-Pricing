@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>180 AgPros — Website Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --forest: #1b3a22;
+  --forest-mid: #2e5c38;
+  --sage-pale: #d4e8d7;
+  --cream: #f7f4ee;
+  --gold: #c9993a;
+  --gold-light: #f2e4c0;
+  --gold-pale: #fdf7ec;
+  --stone: #e0dbd0;
+  --text: #1e1e1c;
+  --text-mid: #4a4a46;
+  --text-light: #888880;
+  --white: #ffffff;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Mulish', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ── COVER ── */
+.cover {
+  background: var(--forest);
+  padding: 44px 24px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  border: 52px solid rgba(201,153,58,0.07);
+  pointer-events: none;
+}
+.cover-eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #7aab82;
+  margin-bottom: 14px;
+}
+.cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 7vw, 44px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.cover h1 em { font-style: normal; color: var(--gold); }
+.cover-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.cover-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.cover-pill {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+.cover-pill.gold { background: rgba(201,153,58,0.22); color: var(--gold-light); }
+
+/* ── VERTICAL SIDEBAR LAYOUT ── */
+.layout {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+/* ── SIDE NAV ── */
+.side-nav {
+  width: 200px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--white);
+  border-right: 1px solid var(--stone);
+  padding: 24px 0;
+}
+.side-nav-title {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  padding: 0 20px 12px;
+  border-bottom: 1px solid var(--stone);
+  margin-bottom: 8px;
+}
+.side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid);
+  padding: 9px 20px;
+  border-left: 3px solid transparent;
+  transition: all 0.15s;
+  line-height: 1.3;
+}
+.side-nav a:hover {
+  color: var(--forest);
+  border-left-color: var(--forest);
+  background: var(--cream);
+}
+.side-nav a .nav-num {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--stone);
+  color: var(--text-mid);
+  font-size: 9px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── MAIN CONTENT ── */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+}
+
+/* ── SECTION ── */
+.sec {
+  padding: 40px 28px;
+  border-bottom: 1px solid var(--stone);
+  background: var(--white);
+}
+.sec:last-of-type { border-bottom: none; }
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.sec-badge {
+  background: var(--forest);
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 600;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 600;
+  color: var(--forest);
+  line-height: 1.2;
+}
+.sec-title small {
+  display: block;
+  font-family: 'Mulish', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3px;
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--stone);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+}
+.card.gold-card { background: var(--gold-pale); border-color: rgba(201,153,58,0.35); }
+.card.forest-card { background: var(--white); border-color: var(--forest); border-left: 5px solid var(--forest); }
+.card.sage-card { background: var(--sage-pale); border-color: rgba(122,171,130,0.4); }
+.card-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+.forest-card .card-label { color: var(--text-light); }
+.card-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; line-height: 1.3; }
+.forest-card .card-title { color: var(--forest); }
+.card-body { font-size: 13px; color: var(--text-mid); font-weight: 400; line-height: 1.65; }
+.forest-card .card-body { color: var(--text-mid); }
+
+/* ── GRID — stacks on mobile ── */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+/* ── RULE ── */
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 16px;
+}
+.rule-line { flex: 1; height: 1px; background: var(--stone); }
+.rule-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+/* ── NAV VISUAL (stacks chips) ── */
+.nav-bar {
+  background: var(--forest);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+.nav-bar-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 4px;
+}
+.nav-chip {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  display: block;
+}
+.nav-chip.active {
+  background: var(--gold);
+  color: var(--forest);
+  font-weight: 800;
+}
+
+/* ── SITEMAP LIST ── */
+.sm-list { display: flex; flex-direction: column; gap: 8px; }
+.sm-row {
+  background: var(--white);
+  border: 1.5px solid var(--stone);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sm-row.indent { margin-left: 20px; }
+.sm-row.legal { opacity: 0.6; }
+.sm-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.sm-url {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--forest);
+  background: var(--cream);
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.sm-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.sm-desc { font-size: 12px; color: var(--text-mid); font-weight: 400; line-height: 1.5; }
+
+/* ── TAGS ── */
+.tag {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.t-nav  { background: var(--sage-pale); color: #1e4a26; }
+.t-cta  { background: var(--gold-light); color: #6a4400; }
+.t-seo  { background: #e3e8f7; color: #2a3e8a; }
+.t-feat { background: #fdecea; color: #8a1f1f; }
+.t-legal { background: var(--stone); color: var(--text-mid); }
+
+/* ── ACCORDION PAGES ── */
+.accordion { display: flex; flex-direction: column; gap: 10px; }
+
+.acc-item {
+  background: var(--white);
+  border: 1.5px solid var(--stone);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.acc-item.gold-acc { border-color: var(--gold); }
+.acc-item.forest-acc { border-color: var(--forest); }
+
+.acc-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  text-align: left;
+}
+.gold-acc .acc-trigger { background: var(--gold-pale); }
+.forest-acc .acc-trigger { background: var(--forest); }
+
+.acc-trigger-left { display: flex; flex-direction: column; gap: 5px; }
+.acc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--forest);
+  line-height: 1.2;
+}
+.forest-acc .acc-title { color: var(--white); }
+
+.acc-url {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--text-light);
+  background: var(--cream);
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.forest-acc .acc-url { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+.acc-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.acc-chevron {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--stone);
+  color: var(--text-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 0.25s, background 0.2s;
+  flex-shrink: 0;
+}
+.forest-acc .acc-chevron { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); }
+.acc-item.open .acc-chevron { transform: rotate(180deg); background: var(--forest); color: var(--white); }
+.forest-acc.open .acc-chevron { background: var(--gold); color: var(--forest); }
+
+.acc-body {
+  display: none;
+  padding: 4px 20px 18px;
+  border-top: 1px solid var(--stone);
+}
+.forest-acc .acc-body { border-top-color: rgba(255,255,255,0.1); }
+.acc-item.open .acc-body { display: block; }
+
+/* ── SECTION ROWS INSIDE ACCORDION ── */
+.ri {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--stone);
+}
+.ri:last-child { border-bottom: none; }
+.ri-dot {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.gold-acc .ri-dot { background: var(--gold); color: var(--forest); }
+.forest-acc .ri-dot { background: var(--gold); color: var(--forest); }
+.ri-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; line-height: 1.3; }
+.ri-desc { font-size: 12.5px; color: var(--text-mid); font-weight: 400; line-height: 1.6; }
+.ri-note {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--gold-light);
+  color: #6a4400;
+}
+
+/* ── COMPETITOR CARDS ── */
+.comp-card {
+  background: var(--white);
+  border: 1.5px solid var(--stone);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.comp-name { font-size: 14px; font-weight: 700; color: var(--forest); margin-bottom: 2px; }
+.comp-role { font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.comp-body { font-size: 12.5px; color: var(--text-mid); line-height: 1.6; }
+.comp-take { margin-top: 10px; padding: 8px 11px; background: var(--sage-pale); border-radius: 7px; font-size: 11.5px; color: var(--forest-mid); font-weight: 600; line-height: 1.5; }
+
+/* ── SWATCHES ── */
+.swatches { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.sw { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sw-dot { width: 34px; height: 34px; border-radius: 7px; border: 1px solid rgba(0,0,0,0.08); }
+.sw span { font-size: 9px; color: var(--text-light); font-family: 'Courier New', monospace; }
+
+/* ── DOMAIN CARDS ── */
+.domain-card { background: var(--white); border: 1.5px solid var(--stone); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; }
+.domain-card.primary { background: var(--forest); border-color: var(--forest); }
+.domain-card.primary .dc-label { color: rgba(255,255,255,0.4); }
+.domain-card.primary .dc-name { color: var(--white); }
+.domain-card.primary .dc-meta { color: rgba(255,255,255,0.52); }
+.dc-label { font-size: 9px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; }
+.dc-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--forest); margin-bottom: 6px; }
+.dc-meta { font-size: 12px; color: var(--text-mid); line-height: 1.65; }
+
+/* ── FLOW STEPS ── */
+.flow-step { background: var(--white); border: 1.5px solid var(--stone); border-radius: 10px; padding: 16px 18px; margin-bottom: 6px; }
+.flow-step.fs-dark { background: var(--forest); border-color: var(--forest); }
+.fs-n { width: 24px; height: 24px; border-radius: 50%; background: var(--forest); color: var(--white); font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 7px; }
+.flow-step.fs-dark .fs-n { background: var(--gold); color: var(--forest); }
+.fs-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.flow-step.fs-dark .fs-title { color: var(--white); }
+.fs-body { font-size: 12.5px; color: var(--text-mid); line-height: 1.6; }
+.flow-step.fs-dark .fs-body { color: rgba(255,255,255,0.6); }
+.flow-arrow { text-align: center; color: var(--text-light); font-size: 20px; padding: 3px 0; }
+
+/* ── PILLS ── */
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.pill { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px; background: var(--stone); color: var(--text-mid); }
+.pill.g { background: var(--sage-pale); color: #1e4a26; }
+.pill.o { background: var(--gold-light); color: #6a4400; }
+
+/* ── MAP FEATURE LIST ── */
+.map-features { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.map-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-radius: 7px;
+}
+.map-feat-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.map-feat-text { font-size: 12.5px; color: var(--text-mid); line-height: 1.5; }
+.map-feat-text strong { color: var(--forest); font-weight: 700; display: block; margin-bottom: 1px; font-size: 13px; }
+
+/* ── FOOTER ── */
+.foot { background: var(--forest); padding: 24px 28px; }
+.foot p { font-size: 11.5px; color: rgba(255,255,255,0.4); margin-bottom: 3px; }
+.foot p:last-child { margin-bottom: 0; }
+.foot p strong { color: rgba(255,255,255,0.7); font-weight: 600; }
+
+/* ── RESPONSIVE BREAKPOINTS ── */
+@media (max-width: 720px) {
+  .layout { flex-direction: column; }
+  .side-nav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--stone);
+    padding: 16px 0 8px;
+  }
+  .side-nav a { padding: 8px 20px; font-size: 13px; }
+  .g2, .g3 { grid-template-columns: 1fr; }
+  .sec { padding: 32px 20px; }
+  .acc-trigger { padding: 14px 16px; }
+  .acc-body { padding: 4px 16px 16px; }
+  .foot { padding: 20px; }
+}
+@media (min-width: 721px) and (max-width: 1024px) {
+  .side-nav { width: 170px; }
+  .g3 { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-eyebrow">Website Proposal · February 2026</div>
+  <h1>180 AgPros<br><em>Website Proposal</em></h1>
+</div>
+
+<!-- LAYOUT WRAPPER -->
+<div class="layout">
+
+  <!-- SIDE NAV (vertical) -->
+  <nav class="side-nav">
+    <div class="side-nav-title">Contents</div>
+    <a href="#overview"><span class="nav-num">1</span> Overview</a>
+    <a href="#design"><span class="nav-num">2</span> Design Direction</a>
+    <a href="#domain"><span class="nav-num">3</span> Domain & Hosting</a>
+    <a href="#sitemap"><span class="nav-num">4</span> Site Map</a>
+    <a href="#pages"><span class="nav-num">5</span> Page Breakdown</a>
+    <a href="#leads"><span class="nav-num">6</span> Lead Flow</a>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main-content">
+
+    <!-- 01 OVERVIEW -->
+    <div class="sec" id="overview">
+      <div class="sec-head">
+        <div class="sec-badge">1</div>
+        <div class="sec-title"><small>Section 01</small>Project Overview</div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="card-label">What We're Building</div>
+          <div class="card-body">A professional, conversion-focused marketing website for 180 AgPros — an agricultural consulting firm specializing in IRS Section 180 excess fertility tax deductions. The site must establish credibility, educate non-technical visitors on a complex topic, and drive qualified pre-qualification leads.</div>
+        </div>
+        <div class="card gold-card">
+          <div class="card-label">About the Business</div>
+          <div class="card-body">When farmers, ranchers, or investors buy ag land, the soil already contains nutrients built up over years. Under IRS Section 180, those pre-existing nutrients can be claimed as a tax deduction — but only with proper scientific documentation. 180 AgPros provides exactly that: soil sampling, lab analysis, and CPA-ready reporting. Backed by Dr. Jake Mowrer, Ph.D., Texas A&M University.</div>
+        </div>
+      </div>
+
+      <div class="g2" style="margin-top:12px;">
+        <div class="card">
+          <div class="card-label">Primary Goal</div>
+          <div class="card-body">Generate pre-qualification leads from land buyers, ranchers, investors, brokers, and CPAs</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Key Differentiator</div>
+          <div class="card-body">Texas A&M–backed science, multi-year ongoing support, product-neutral — no fertilizer sales</div>
+        </div>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Client Responsibilities</div><div class="rule-line"></div></div>
+
+      <div class="card gold-card">
+        <div class="card-label">Content Provided by Client</div>
+        <div class="card-title">Images, Photography & Written Content</div>
+        <div class="card-body" style="margin-top:6px;">The client is responsible for providing all website content prior to or during the build process. This includes professional photos and images (team headshots, property photos, field imagery, etc.), all written copy (service descriptions, bios, FAQs, and any other page text), and any logos or brand assets. Placeholder content may be used during development, but final content must be supplied by the client before the site can launch. Any content not provided will delay the project timeline.</div>
+      </div>
+    </div>
+
+    <!-- 02 DESIGN -->
+    <div class="sec" id="design">
+      <div class="sec-head">
+        <div class="sec-badge">2</div>
+        <div class="sec-title"><small>Section 02</small>Design Direction</div>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Competitor & Inspiration Analysis</div><div class="rule-line"></div></div>
+
+      <div class="comp-card">
+        <div class="comp-name">BirddogIT</div>
+        <div class="comp-role">Design Inspiration</div>
+        <div class="comp-body">Clean structure, strong visual hierarchy, full-width ag photography, bold process sections, and a clear CTA flow throughout. Professional but approachable. Chase specifically called out the overall feel and layout — not the services (they offer much more than 180 AgPros will).</div>
+        <div class="comp-take">✦ Borrow: layout structure, section spacing, trust signals, process visualization style</div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-name">Boa Safra Ag</div>
+        <div class="comp-role">Primary Competitor</div>
+        <div class="comp-body">Established brand. Strong data ($500M+ deductions generated, $1,700/acre average, 3,000+ clients). Simple 3-step process layout. Functional but visually dated. Their /get-started page is the model for 180 AgPros' Pre-Qualify page — the concept, not the design.</div>
+        <div class="comp-take">✦ Beat them on: modern design, polish, intuitive UX, Texas-rooted credibility with Dr. Mowrer</div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-name">Soil Tax Guys</div>
+        <div class="comp-role">Calculator Reference</div>
+        <div class="comp-body">Has a basic interactive calculator for estimating Section 180 deductions. Chase wants something similar but meaningfully improved — with "what-if" scenario variables that let users explore different outcomes, plus a polished UI that captures leads at the results stage.</div>
+        <div class="comp-take">✦ Improve on: more input variables, cleaner output display, integrated lead capture at results</div>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Visual Tone & Style</div><div class="rule-line"></div></div>
+
+      <div class="g3">
+        <div class="card">
+          <div class="card-label">Overall Tone</div>
+          <div class="card-body">Refined and authoritative — premium ag meets financial services. Earthy but polished, not rustic. The Texas A&M connection demands credibility. Think: Land Report magazine meets a high-end tax advisory firm.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Photography Style</div>
+          <div class="card-body">Full-width aerial farmland shots, soil close-ups, professional field imagery. Minimal generic stock. Real Texas ranchland where possible. Drone-shot golden-hour fields work well as hero backgrounds.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Typography</div>
+          <div class="card-body">Classic serif for headlines — conveys trust and legacy. Clean sans-serif for body copy. Bold hierarchy, generous white space. Avoid anything too startup-y or overly corporate.</div>
+        </div>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Color Palette</div><div class="rule-line"></div></div>
+      <div class="card">
+        <div class="swatches">
+          <div class="sw"><div class="sw-dot" style="background:#1b3a22;"></div><span>#1B3A22</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#2e5c38;"></div><span>#2E5C38</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#7aab82;"></div><span>#7AAB82</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#c9993a;"></div><span>#C9993A</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f2e4c0;"></div><span>#F2E4C0</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f7f4ee; border:1px solid #ccc;"></div><span>#F7F4EE</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#1a1a18;"></div><span>#1A1A18</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#ffffff; border:1px solid #ccc;"></div><span>#FFFFFF</span></div>
+        </div>
+        <div class="card-body" style="margin-top:12px; font-size:12.5px;">Deep forest greens as the dominant color — trustworthy, natural, grounded. Gold accents for warmth and a premium feel. Off-white cream as the page background. Avoids the generic blue palette used by most ag tech competitors.</div>
+      </div>
+    </div>
+
+    <!-- 03 DOMAIN & HOSTING -->
+    <div class="sec" id="domain">
+      <div class="sec-head">
+        <div class="sec-badge">3</div>
+        <div class="sec-title"><small>Section 03</small>Domain & Hosting</div>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Domains Already Purchased</div><div class="rule-line"></div></div>
+
+      <div class="domain-card primary">
+        <div class="dc-label">Primary Domain</div>
+        <div class="dc-name">180agpros.com</div>
+        <div class="dc-meta">Purchased: Feb 5, 2026 · $11.48/year · Namecheap<br>Registered by: Coy Taylor · Boerne, TX 78006<br>Includes free domain privacy</div>
+      </div>
+
+      <div class="domain-card">
+        <div class="dc-label">Redirect Domain</div>
+        <div class="dc-name" style="font-size:15px;">section180agpros.com</div>
+        <div class="dc-meta" style="font-size:12px;">Purchased: Dec 2, 2025 · $6.69/year · Namecheap<br>Registered by: Coy Taylor · Boerne, TX 78006<br><br><strong style="color:var(--forest-mid);">Action needed:</strong> Configure a 301 redirect from this domain → 180agpros.com. Captures anyone searching "section 180" and ensures they land on the main site. No separate content needed on this domain.</div>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Website Build & Hosting</div><div class="rule-line"></div></div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="card-label">Build Approach</div>
+          <div class="card-title">Custom Built</div>
+          <div class="card-body">The site will be custom designed and developed to match the specific design direction, brand standards, and feature requirements of 180 AgPros — including the interactive Section 180 calculator with what-if variables.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Hosting</div>
+          <div class="card-title">Professional Web Hosting</div>
+          <div class="card-body">Site will be hosted on a managed hosting plan with SSL certificate included, daily backups, and reliable uptime. DNS will be pointed from Namecheap to the hosting server at launch.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">SSL Certificate</div>
+          <div class="card-title">Required & Included</div>
+          <div class="card-body">Required for secure form submissions, trusted HTTPS padlock in the browser, and is a Google search ranking factor. Will be configured at launch.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Domain Configuration</div>
+          <div class="card-title">DNS Setup at Launch</div>
+          <div class="card-body">Both Namecheap domains will be configured at launch — primary domain pointed to hosting, secondary domain set to 301 redirect to the primary.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Client Portal</div>
+          <div class="card-title">Client Dashboard</div>
+          <div class="card-body">A personal login portal where the 180 AgPros team can request website revisions and view site analytics. Revisions are unlimited and included at no extra charge — up to 2 active requests per month, processed one at a time. The dashboard also includes a website analytics panel showing visitor traffic, top pages, and performance metrics.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 SITEMAP -->
+    <div class="sec" id="sitemap">
+      <div class="sec-head">
+        <div class="sec-badge">4</div>
+        <div class="sec-title"><small>Section 04</small>Site Map</div>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Global Navigation Bar</div><div class="rule-line"></div></div>
+      <div class="nav-bar" style="margin-bottom:24px;">
+        <div class="nav-bar-label">Navigation Items</div>
+        <span class="nav-chip">Home</span>
+        <span class="nav-chip">Our Process</span>
+        <span class="nav-chip">Who We Help</span>
+        <span class="nav-chip">Section 180 Calculator</span>
+        <span class="nav-chip">About Us</span>
+        <span class="nav-chip">FAQs</span>
+        <span class="nav-chip active">Pre-Qualify Your Land →</span>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">All Pages</div><div class="rule-line"></div></div>
+      <div class="sm-list">
+
+        <div class="sm-row">
+          <div class="sm-top">
+            <span class="sm-url">/</span>
+            <span class="sm-name">Home</span>
+            <span class="tag t-nav">Primary</span>
+          </div>
+          <div class="sm-desc">Main entry point. Educates visitors on Section 180, builds trust, and funnels to Pre-Qualify.</div>
+        </div>
+
+        <div class="sm-row indent">
+          <div class="sm-top">
+            <span class="sm-url">/our-process</span>
+            <span class="sm-name">Our Process</span>
+            <span class="tag t-nav">Nav Page</span>
+          </div>
+          <div class="sm-desc">Full 6-step methodology. What clients can expect from start to finish.</div>
+        </div>
+
+        <div class="sm-row indent">
+          <div class="sm-top">
+            <span class="sm-url">/who-we-help</span>
+            <span class="sm-name">Who We Help</span>
+            <span class="tag t-seo">SEO Value</span>
+          </div>
+          <div class="sm-desc">Audience-specific sections: crop producers, ranchers, investors, brokers, CPAs.</div>
+        </div>
+
+        <div class="sm-row indent">
+          <div class="sm-top">
+            <span class="sm-url">/calculator</span>
+            <span class="sm-name">Section 180 Calculator</span>
+            <span class="tag t-feat">★ Key Feature</span>
+          </div>
+          <div class="sm-desc">Interactive deduction estimator with what-if scenario variables. Lead generation tool.</div>
+        </div>
+
+        <div class="sm-row indent">
+          <div class="sm-top">
+            <span class="sm-url">/about</span>
+            <span class="sm-name">About Us</span>
+            <span class="tag t-nav">Nav Page</span>
+          </div>
+          <div class="sm-desc">Mission, Dr. Mowrer bio, team profiles, Texas A&M credibility, company philosophy.</div>
+        </div>
+
+        <div class="sm-row indent">
+          <div class="sm-top">
+            <span class="sm-url">/faqs</span>
+            <span class="sm-name">FAQs</span>
+            <span class="tag t-seo">SEO Value</span>
+          </div>
+          <div class="sm-desc">21 categorized questions in accordion layout. High organic search traffic potential.</div>
+        </div>
+
+        <div class="sm-row indent">
+          <div class="sm-top">
+            <span class="sm-url">/get-started</span>
+            <span class="sm-name">Pre-Qualify Your Land</span>
+            <span class="tag t-cta">★ Main CTA</span>
+          </div>
+          <div class="sm-desc">Primary conversion page. Intake form, next steps, contact info sidebar.</div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <!-- 05 PAGE BREAKDOWN -->
+    <div class="sec" id="pages">
+      <div class="sec-head">
+        <div class="sec-badge">5</div>
+        <div class="sec-title"><small>Section 05</small>Page-by-Page Content Breakdown</div>
+      </div>
+      <div class="card gold-card" style="margin-bottom:18px;">
+        <div class="card-body" style="font-size:12.5px;">Each page below is expandable. Tap or click to see the full section-by-section content breakdown.</div>
+      </div>
+
+      <div class="accordion">
+
+        <!-- HOME -->
+        <div class="acc-item" id="acc-home">
+          <button class="acc-trigger" onclick="toggleAcc('acc-home')">
+            <div class="acc-trigger-left">
+              <div class="acc-title">Home Page</div>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="acc-url">180agpros.com/</span>
+                <span class="tag t-nav">Primary Entry</span>
+              </div>
+            </div>
+            <div class="acc-right">
+              <span style="font-size:11px; color:var(--text-light); font-weight:600;">7 sections</span>
+              <div class="acc-chevron">▾</div>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="ri"><div class="ri-dot">1</div><div><div class="ri-title">Hero — Full Width</div><div class="ri-desc">Full-screen aerial farmland or ranchland image. Bold headline: "Your Soil Already Holds Deductible Value. Let's Prove It." Short subheadline explaining Section 180 in plain English. Two CTAs: "Pre-Qualify Your Land" (primary gold button) + "See How It Works" (secondary outline).</div></div></div>
+            <div class="ri"><div class="ri-dot">2</div><div><div class="ri-title">What Is Section 180? — Plain English Explainer</div><div class="ri-desc">2–3 sentence plain-language explanation. Simple stat callout: "Most landowners don't know this deduction exists — and the average qualifying property is worth hundreds of dollars per acre in deductions." Targets first-time visitors arriving via broker referral or web search.</div></div></div>
+            <div class="ri"><div class="ri-dot">3</div><div><div class="ri-title">3-Step Process Snapshot</div><div class="ri-desc">Simplified 3-icon overview only: (1) Pre-Qualify → (2) We Do the Science → (3) CPA Gets the Report. Not the full 6-step detail — that lives on Our Process. Ends with "See the Full Process →" link.</div></div></div>
+            <div class="ri"><div class="ri-dot">4</div><div><div class="ri-title">Who We Serve — Audience Grid</div><div class="ri-desc">6-tile icon grid: Crop Producers / Ranch Owners / Pasture & Forage / Land Buyers & Investors / Land Brokers / CPAs. Each tile links to the relevant section on the Who We Help page.</div></div></div>
+            <div class="ri"><div class="ri-dot">5</div><div><div class="ri-title">Credibility Block — Dr. Jake Mowrer & Texas A&M</div><div class="ri-desc">Photo of Dr. Mowrer with full name, title (Extension Professor of Soil Nutrient & Water Resource Management, Dept. of Soil & Crop Sciences, Texas A&M University), and a brief statement about the science behind 180 AgPros. This is the #1 trust signal on the entire site — must be prominent and well-designed.</div><span class="ri-note">★ Highest-impact trust signal on the site</span></div></div>
+            <div class="ri"><div class="ri-dot">6</div><div><div class="ri-title">Calculator Teaser</div><div class="ri-desc">"Wondering What Your Land Might Be Worth?" Short description + CTA button → Section 180 Calculator page. Drives engagement before asking for a full commitment.</div></div></div>
+            <div class="ri"><div class="ri-dot">7</div><div><div class="ri-title">Bottom CTA Banner</div><div class="ri-desc">Full-width dark section with soil/earth background. Headline: "Most clients start with one question: Does my land qualify?" Large "Pre-Qualify Your Land" button + phone number. Repeats on every page.</div></div></div>
+          </div>
+        </div>
+
+        <!-- OUR PROCESS -->
+        <div class="acc-item" id="acc-process">
+          <button class="acc-trigger" onclick="toggleAcc('acc-process')">
+            <div class="acc-trigger-left">
+              <div class="acc-title">Our Process</div>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="acc-url">180agpros.com/our-process</span>
+                <span class="tag t-nav">Nav Page</span>
+              </div>
+            </div>
+            <div class="acc-right">
+              <span style="font-size:11px; color:var(--text-light); font-weight:600;">8 sections</span>
+              <div class="acc-chevron">▾</div>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="ri"><div class="ri-dot">1</div><div><div class="ri-title">Page Hero</div><div class="ri-desc">Full-width field image. Title: "Our Process." Subtitle: "Independent, Accurate Soil Fertility Analysis to Support Section 180 Deductions."</div></div></div>
+            <div class="ri"><div class="ri-dot">2</div><div><div class="ri-title">Step 1 — Property Pre-Qualification</div><div class="ri-desc">Evaluate acquisition timing, land use, and operational context to determine whether a Section 180 deduction is appropriate for the property.</div></div></div>
+            <div class="ri"><div class="ri-dot">3</div><div><div class="ri-title">Step 2 — Professional Soil Sampling</div><div class="ri-desc">Soil samples collected using agronomic protocols for cropland, ranchland, pasture, and forage systems. All samples are GPS-documented to verify acreage and field locations.</div></div></div>
+            <div class="ri"><div class="ri-dot">4</div><div><div class="ri-title">Step 3 — Laboratory Analysis</div><div class="ri-desc">Independent laboratory testing establishes baseline nutrient levels — nitrogen, phosphorus, potassium, calcium, magnesium, sulfur, and key micronutrients — with laboratory-grade precision.</div></div></div>
+            <div class="ri"><div class="ri-dot">5</div><div><div class="ri-title">Step 4 — Fertility Quantification & Valuation</div><div class="ri-desc">Excess soil nutrients quantified and valued using established agronomic principles and IRS-accepted accounting methods.</div></div></div>
+            <div class="ri"><div class="ri-dot">6</div><div><div class="ri-title">Step 5 — CPA-Ready Reporting</div><div class="ri-desc">Clear, defensible reports for tax filing and audit support. Includes soil maps, lab results, nutrient calculations, valuation methodology, and supporting schedules.</div></div></div>
+            <div class="ri"><div class="ri-dot">7</div><div><div class="ri-title">Step 6 — Ongoing Documentation (3-Year Window)</div><div class="ri-desc">Ongoing soil testing and documentation over the full 3-year deduction window to demonstrate nutrient usage, meet deadlines, and maintain audit defensibility. Most competitors stop at the report — 180 AgPros doesn't.</div><span class="ri-note">★ Key differentiator vs. Boa Safra and others</span></div></div>
+            <div class="ri"><div class="ri-dot">8</div><div><div class="ri-title">Bottom CTA Banner</div><div class="ri-desc">"Pre-Qualify Your Agricultural Land" — connects to the Get Started page.</div></div></div>
+          </div>
+        </div>
+
+        <!-- WHO WE HELP -->
+        <div class="acc-item" id="acc-who">
+          <button class="acc-trigger" onclick="toggleAcc('acc-who')">
+            <div class="acc-trigger-left">
+              <div class="acc-title">Who We Help</div>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="acc-url">180agpros.com/who-we-help</span>
+                <span class="tag t-seo">High SEO Value</span>
+              </div>
+            </div>
+            <div class="acc-right">
+              <span style="font-size:11px; color:var(--text-light); font-weight:600;">7 sections</span>
+              <div class="acc-chevron">▾</div>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="ri"><div class="ri-dot">1</div><div><div class="ri-title">Crop Producers</div><div class="ri-desc">Row-crop and specialty crop farmers acquiring land with existing nutrient value. Help with: baseline fertility verification, quantifying excess nutrients, documenting usage over time, CPA-ready reporting.</div></div></div>
+            <div class="ri"><div class="ri-dot">2</div><div><div class="ri-title">Ranch Owners & Operators</div><div class="ri-desc">Ranchland often carries significant legacy fertility even with minimal fertilizer inputs. Coverage includes native and improved grasses, grazing, hay, and forage systems. Multi-year defensible records.</div></div></div>
+            <div class="ri"><div class="ri-dot">3</div><div><div class="ri-title">Pasture & Forage Operations</div><div class="ri-desc">Often overlooked for Section 180. Analysis accounts for nutrient cycling, forage removal, and long-term soil behavior. Covers improved pasture, hay production, and mixed forage systems.</div></div></div>
+            <div class="ri"><div class="ri-dot">4</div><div><div class="ri-title">Agricultural Land Buyers & Investors</div><div class="ri-desc">Individual buyers, family offices, investment groups, and ag funds. Services used during or shortly after acquisition for pre-qualification, tax planning, baseline documentation, and post-acquisition records.</div></div></div>
+            <div class="ri"><div class="ri-dot">5</div><div><div class="ri-title">Land Brokers & Real Estate Groups</div><div class="ri-desc">Adds credibility and differentiation to listings. Documentation buyers can use with their CPAs. Key broker marketing language: "Soil Fertility Analysis Available | Section 180 Pre-Qualified."</div></div></div>
+            <div class="ri"><div class="ri-dot">6</div><div><div class="ri-title">CPAs & Tax Professionals</div><div class="ri-desc">Technical soil documentation required to support Section 180 filings. Clear, CPA-ready reports. Multi-year support. 180 AgPros does not provide tax advice — they provide the soil science foundation CPAs rely on.</div></div></div>
+            <div class="ri"><div class="ri-dot">7</div><div><div class="ri-title">Bottom CTA</div><div class="ri-desc">"Not sure if your land qualifies? That's exactly where we recommend starting." → Pre-Qualify Your Land.</div></div></div>
+          </div>
+        </div>
+
+        <!-- CALCULATOR -->
+        <div class="acc-item gold-acc" id="acc-calc">
+          <button class="acc-trigger" onclick="toggleAcc('acc-calc')">
+            <div class="acc-trigger-left">
+              <div class="acc-title">Section 180 Calculator</div>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="acc-url">180agpros.com/calculator</span>
+                <span class="tag t-feat">★ Signature Feature</span>
+              </div>
+            </div>
+            <div class="acc-right">
+              <span style="font-size:11px; color:var(--text-light); font-weight:600;">6 sections</span>
+              <div class="acc-chevron">▾</div>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="ri"><div class="ri-dot">1</div><div><div class="ri-title">Intro Framing</div><div class="ri-desc">Clear disclaimer: "This calculator gives you a ballpark estimate based on general averages. A real deduction requires professional soil sampling — but this will show you if it's worth exploring." Sets expectations, reduces skepticism from first-time visitors.</div></div></div>
+            <div class="ri"><div class="ri-dot">2</div><div><div class="ri-title">Input: Land Details</div><div class="ri-desc">Total acreage, land type (Cropland / Ranchland / Improved Pasture / Native Grass / Mixed), state or region selector.</div></div></div>
+            <div class="ri"><div class="ri-dot">3</div><div><div class="ri-title">Input: Financial Details</div><div class="ri-desc">Purchase price per acre (or total purchase price), approximate acquisition year, tax bracket (optional: 22% / 24% / 32% / 37%).</div></div></div>
+            <div class="ri"><div class="ri-dot">4</div><div><div class="ri-title">What-If Variables</div><div class="ri-desc">Scenario toggles: Soil nutrient level assumption (Conservative / Average / Above Average), prior fertilizer history (Yes / No / Unknown), deduction year preference (Full in Year 1 vs. 60/30/10 three-year split). Users explore multiple outcomes — the key improvement over Soil Tax Guys.</div><span class="ri-note">★ Chase specifically requested these "what-if" options</span></div></div>
+            <div class="ri"><div class="ri-dot">5</div><div><div class="ri-title">Output Display</div><div class="ri-desc">Shows: Estimated deduction range (low / mid / high), estimated tax savings range based on selected bracket, estimated per-acre value. Clearly marked as an estimate with required disclaimer.</div></div></div>
+            <div class="ri"><div class="ri-dot">6</div><div><div class="ri-title">Results CTA — Lead Capture</div><div class="ri-desc">After results appear: "Want a real number? Our team can provide an accurate assessment." Primary CTA → Pre-Qualify Your Land. Optional email capture: "Send my results to my inbox" — creates a soft lead without requiring the full intake form.</div><span class="ri-note">★ Lead generation integration point</span></div></div>
+          </div>
+        </div>
+
+        <!-- ABOUT US -->
+        <div class="acc-item" id="acc-about">
+          <button class="acc-trigger" onclick="toggleAcc('acc-about')">
+            <div class="acc-trigger-left">
+              <div class="acc-title">About Us</div>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="acc-url">180agpros.com/about</span>
+                <span class="tag t-nav">Nav Page</span>
+              </div>
+            </div>
+            <div class="acc-right">
+              <span style="font-size:11px; color:var(--text-light); font-weight:600;">5 sections</span>
+              <div class="acc-chevron">▾</div>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="ri"><div class="ri-dot">1</div><div><div class="ri-title">Mission & Philosophy</div><div class="ri-desc">Lead with the brand's core positioning: "Measured, not assumed. Documented, not estimated. Defensible, not generic." Brief company background — why 180 AgPros was founded and what makes it different.</div></div></div>
+            <div class="ri"><div class="ri-dot">2</div><div><div class="ri-title">Dr. Jake Mowrer — Scientific Lead</div><div class="ri-desc">Prominent, well-designed bio section: professional photo, full name and title (Extension Professor of Soil Nutrient & Water Resource Management, Dept. of Soil & Crop Sciences, Texas A&M University). Decades of experience in soil fertility, nutrient management, and applied agronomy. Needs space — it's the biggest trust signal the company has.</div><span class="ri-note">★ #1 credibility asset — design it prominently</span></div></div>
+            <div class="ri"><div class="ri-dot">3</div><div><div class="ri-title">Team Section</div><div class="ri-desc">Profile cards for: Chase Nash (Agent, Southern Ranch Sales / Phyllis Browning Land & Ranch Sales), Coy Taylor, Brannon Nash. Photos, roles, brief bios. Humanizes the brand beyond the science.</div></div></div>
+            <div class="ri"><div class="ri-dot">4</div><div><div class="ri-title">Why 180 AgPros</div><div class="ri-desc">Fertility-first, product-neutral (we don't sell fertilizer) / Built specifically for land acquisitions / University-level science / Ongoing 3-year support — not just a one-time report / CPA-friendly reporting / Nationwide service capability.</div></div></div>
+            <div class="ri"><div class="ri-dot">5</div><div><div class="ri-title">Texas A&M Disclaimer</div><div class="ri-desc">Required disclosure: "Dr. Jake Mowrer serves as an Extension Professor at Texas A&M University. His role at 180 AgPros reflects his independent professional expertise and does not constitute an endorsement by Texas A&M University."</div></div></div>
+          </div>
+        </div>
+
+        <!-- FAQs -->
+        <div class="acc-item" id="acc-faq">
+          <button class="acc-trigger" onclick="toggleAcc('acc-faq')">
+            <div class="acc-trigger-left">
+              <div class="acc-title">FAQs</div>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="acc-url">180agpros.com/faqs</span>
+                <span class="tag t-seo">High SEO Value</span>
+              </div>
+            </div>
+            <div class="acc-right">
+              <span style="font-size:11px; color:var(--text-light); font-weight:600;">6 categories</span>
+              <div class="acc-chevron">▾</div>
+            </div>
+          </button>
+          <div class="acc-body">
+            <div class="ri"><div class="ri-dot">1</div><div><div class="ri-title">Category 1 — General</div><div class="ri-desc">What are Excess Fertility Deductions? How is nutrient value calculated? Is this deduction aggressive or risky? What does 180 AgPros provide? (~4 questions)</div></div></div>
+            <div class="ri"><div class="ri-dot">2</div><div><div class="ri-title">Category 2 — Eligibility</div><div class="ri-desc">Who qualifies? Does land have to grow crops? Must I actively farm? Can passive landowners qualify? Inherited land? Gifted land? Timberland? (~6–7 questions)</div></div></div>
+            <div class="ri"><div class="ri-dot">3</div><div><div class="ri-title">Category 3 — Process & Timing</div><div class="ri-desc">When must soil testing be done? What if fertilizer was already applied? How long does the process take? How far back can the deduction be claimed? (~4 questions)</div></div></div>
+            <div class="ri"><div class="ri-dot">4</div><div><div class="ri-title">Category 4 — Documentation & Tax</div><div class="ri-desc">What does the CPA-ready report include? Does this lower my basis? What nutrients are evaluated? Do I need a CPA? (~4–5 questions)</div></div></div>
+            <div class="ri"><div class="ri-dot">5</div><div><div class="ri-title">Category 5 — Cost & Engagement</div><div class="ri-desc">What does it cost (per-acre pricing)? Why work with 180 AgPros vs. independently? Do I need to hunt or lease my land to qualify? (~3 questions)</div></div></div>
+            <div class="ri"><div class="ri-dot">6</div><div><div class="ri-title">Layout</div><div class="ri-desc">Accordion-style expand/collapse per category. All 21 questions from the provided FAQ document included. Bottom CTA: "Still have questions? Talk with our team." → Pre-Qualify page.</div></div></div>
+          </div>
+        </div>
+
+        <!-- PRE-QUALIFY -->
+        <div class="acc-item forest-acc" id="acc-prequalify">
+          <button class="acc-trigger" onclick="toggleAcc('acc-prequalify')">
+            <div class="acc-trigger-left">
+              <div class="acc-title">Pre-Qualify Your Land</div>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="acc-url">180agpros.com/get-started</span>
+                <span class="tag t-cta">★ Primary Conversion Page</span>
+              </div>
+            </div>
+            <div class="acc-right">
+              <span style="font-size:11px; color:rgba(255,255,255,0.4); font-weight:600;">5 sections</span>
+              <div class="acc-chevron">▾</div>
+            </div>
+          </button>
+          <div class="acc-body" style="background:var(--forest);">
+            <div class="ri" style="border-bottom-color:rgba(255,255,255,0.1);">
+              <div class="ri-dot">1</div>
+              <div><div class="ri-title" style="color:var(--white);">Page Framing</div><div class="ri-desc" style="color:rgba(255,255,255,0.6);">Headline: "Let's Start With Your Property." Subheadline: "Most clients begin with one question: Does my land qualify? That's exactly where we recommend starting." Removes pressure — inquiry only, not a commitment.</div></div>
+            </div>
+            <div class="ri" style="border-bottom-color:rgba(255,255,255,0.1);">
+              <div class="ri-dot">2</div>
+              <div><div class="ri-title" style="color:var(--white);">Intake Form Fields</div><div class="ri-desc" style="color:rgba(255,255,255,0.6);">Full Name · Email Address · Phone Number (optional) · Property Type (Cropland / Ranchland / Pasture / Forage / Mixed / Other) · Total Acreage · State · Approximate Acquisition Date · How did you hear about us? · Message / Notes · Submit: "Submit My Pre-Qualification Request"</div></div>
+            </div>
+            <div class="ri" style="border-bottom-color:rgba(255,255,255,0.1);">
+              <div class="ri-dot">3</div>
+              <div><div class="ri-title" style="color:var(--white);">What Happens After You Submit</div><div class="ri-desc" style="color:rgba(255,255,255,0.6);">3-step visual next to the form: Step 1 — Team reviews property details (within 1 business day). Step 2 — Brief call scheduled to discuss situation. Step 3 — Team lets you know if and how you qualify. Reduces anxiety, sets expectations.</div></div>
+            </div>
+            <div class="ri" style="border-bottom-color:rgba(255,255,255,0.1);">
+              <div class="ri-dot">4</div>
+              <div><div class="ri-title" style="color:var(--white);">Contact Info Sidebar</div><div class="ri-desc" style="color:rgba(255,255,255,0.6);">Phone: (432) 260-8101 · Email: info@180agpros.com · Hours: Mon–Fri 8am–6pm CST · Location: Boerne, Texas</div></div>
+            </div>
+            <div class="ri" style="border-bottom:none;">
+              <div class="ri-dot">5</div>
+              <div><div class="ri-title" style="color:var(--white);">Trust Reinforcement Strip</div><div class="ri-desc" style="color:rgba(255,255,255,0.6);">Below the form: ✓ Science-led methodology · ✓ CPA-ready reporting · ✓ Multi-year support · ✓ Nationwide service · ✓ No obligation to engage</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+    </div>
+
+    <!-- 06 LEAD FLOW -->
+    <div class="sec" id="leads">
+      <div class="sec-head">
+        <div class="sec-badge">6</div>
+        <div class="sec-title"><small>Section 06</small>Lead Flow & Automations</div>
+      </div>
+
+      <div class="card gold-card" style="margin-bottom:20px;">
+        <div class="card-label">Why This Matters</div>
+        <div class="card-body">Every lead entry point — the Pre-Qualify form, the Calculator email capture, and the footer contact form — must route to a system so no lead is missed. Below is the full recommended flow from form submission to first human contact, plus the two platform options.</div>
+      </div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Lead Entry Points</div><div class="rule-line"></div></div>
+
+      <div class="flow-step" style="margin-bottom:6px;">
+        <div class="fs-n">1</div>
+        <div class="fs-title">Pre-Qualify Form — /get-started</div>
+        <div class="fs-body">Primary and highest-intent lead source. Full intake form with property details, acreage, location, and message.</div>
+      </div>
+      <div class="flow-step" style="margin-bottom:6px;">
+        <div class="fs-n">2</div>
+        <div class="fs-title">Calculator Email Capture — /calculator</div>
+        <div class="fs-body">"Send my results to my inbox." Soft lead — lower commitment but potentially high volume.</div>
+      </div>
+      <div class="flow-step" style="margin-bottom:0;">
+        <div class="fs-n">3</div>
+        <div class="fs-title">Footer / General Contact Form</div>
+        <div class="fs-body">Catches broker, CPA, and general inquiry leads from anywhere on the site.</div>
+      </div>
+
+      <div class="flow-arrow">↓</div>
+
+      <div class="rule"><div class="rule-line"></div><div class="rule-label">Where Leads Go — Two Options</div><div class="rule-line"></div></div>
+
+      <!-- OPTION A: Email Notifications -->
+      <div class="card sage-card" style="margin-bottom:12px;">
+        <div class="card-label">Option A — Basic</div>
+        <div class="card-title">Email Notifications</div>
+        <div class="card-body">Every form submission triggers an immediate email notification to the team with all submitted fields included. Simple, no platform required, and accessible from any device.</div>
+        <div class="pills">
+          <span class="pill g">No platform needed</span>
+          <span class="pill g">Instant alerts</span>
+          <span class="pill g">Easy setup</span>
+          <span class="pill g">Full team access</span>
+        </div>
+      </div>
+
+      <!-- OPTION B: MAP -->
+      <div class="card forest-card">
+        <div class="card-label">Option B — Full Platform</div>
+        <div class="card-title">MAP — Marketing Automation Platform</div>
+        <div class="card-body" style="margin-bottom:14px; color:var(--text-mid);">MAP is an all-in-one marketing and business platform that gives 180 AgPros a complete system for managing leads, automations, and marketing — all in one place. Here's what's included:</div>
+        <div class="map-features">
+          <div class="map-feat">
+            <div class="map-feat-icon">📋</div>
+            <div class="map-feat-text"><strong>CRM & Lead Pipeline</strong>All form submissions feed directly into a visual pipeline. Track every lead from "New Inquiry" to "Engaged" to "Closed" with full contact history and notes.</div>
+          </div>
+          <div class="map-feat">
+            <div class="map-feat-icon">⚡</div>
+            <div class="map-feat-text"><strong>Automations</strong>Build automated follow-up sequences — e.g., if a lead fills out the Pre-Qualify form and doesn't get a response within 24 hours, automatically send a follow-up email. Triggered workflows based on lead actions.</div>
+          </div>
+          <div class="map-feat">
+            <div class="map-feat-icon">📧</div>
+            <div class="map-feat-text"><strong>Email Marketing</strong>Send branded marketing emails to your contact list — newsletters, seasonal campaigns, broker/CPA outreach, and more. Drag-and-drop email builder, open/click tracking, and list segmentation.</div>
+          </div>
+          <div class="map-feat">
+            <div class="map-feat-icon">📱</div>
+            <div class="map-feat-text"><strong>Social Media Management</strong>Schedule and post to all 180 AgPros social media accounts (Instagram, Facebook, LinkedIn, etc.) from one dashboard. Plan content in advance and track engagement.</div>
+          </div>
+          <div class="map-feat">
+            <div class="map-feat-icon">📊</div>
+            <div class="map-feat-text"><strong>Analytics & Reporting</strong>See where leads are coming from, track open rates, conversion rates, and pipeline performance — all in one dashboard. Know which channels are working.</div>
+          </div>
+          <div class="map-feat">
+            <div class="map-feat-icon">💬</div>
+            <div class="map-feat-text"><strong>Two-Way SMS & Inbox</strong>Text leads directly from the platform. All conversations (email, SMS, web chat) consolidated in a single inbox so nothing falls through the cracks.</div>
+          </div>
+          <div class="map-feat">
+            <div class="map-feat-icon">📅</div>
+            <div class="map-feat-text"><strong>Appointment Booking</strong>Embed a booking calendar on the site so leads can schedule a pre-qualification call directly — no back-and-forth emails.</div>
+          </div>
+        </div>
+        <div class="pills" style="margin-top:14px;">
+          <span class="pill o">All-in-one platform</span>
+          <span class="pill o">Replaces multiple tools</span>
+          <span class="pill o">Scales with the business</span>
+        </div>
+      </div>
+
+
+    </div><!-- /leads -->
+
+
+
+
+  </div><!-- /main-content -->
+</div><!-- /layout -->
+
+<script>
+function toggleAcc(id) {
+  var item = document.getElementById(id);
+  if (item) item.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
